@@ -2,7 +2,7 @@
   session_start(); 
 
   if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
+  	$_SESSION['msg'] = "Jelentkezz be először!";
   	header('location: login.php');
   }
   if (isset($_GET['logout'])) {
@@ -10,17 +10,27 @@
   	unset($_SESSION['username']);
   	header("location: login.php");
   }
+  function role($permission) {
+	if($permission == 0){
+	  return " [Tag] ";
+	}elseif($permission == 1) {
+	  return " [Szervező] ";
+	}elseif($permission == 2) {
+	  return " [Admin] ";
+	} 
+  }
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Főoldal</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 <div class="header">
-	<h2>Home Page</h2>
+	<h2>Főoldal</h2>
 </div>
 <div class="content">
   	<!-- notification message -->
@@ -35,10 +45,16 @@
       </div>
   	<?php endif ?>
 
-    <!-- logged in user information -->
+ 
     <?php  if (isset($_SESSION['username'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+
+    	<p>Üdvözöllek,  <strong><?php echo $_SESSION['username']; echo role($_SESSION['rang']); ?></strong></p>
+    	<p> <a href="index.php?logout='1'" style="color: red;">Kijelentkezés</a> </p>
+		<?php if($_SESSION['rang'] > 0) : ?>
+			<div class="input-group">
+			<a href='upload.php'>Esemény feltöltése</a>
+			</div>
+		<?php endif ?>		
     <?php endif ?>
 </div>
 		
