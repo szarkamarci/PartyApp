@@ -18,9 +18,6 @@ else{
    echo "Csatlakozás Sikeres!";
 }
 
-//Felhasználó jogosultságának megjlenítésére function
-
-
 // FELHASZNÁLÓ REGISZTRÁCIÓ
 if (isset($_POST['reg_user'])) {
   // A regisztrációhoz szükséges adatok eltárolása
@@ -55,9 +52,9 @@ if (isset($_POST['reg_user'])) {
 
   // Regisztrálás, ha nincs hiba a formulán
   if (count($errors) == 0) {
-    if ($_POST['szervezo'] == "tr"){
+    if ($_POST['szervezo'] == 1){
       $szervezo = 1;
-    }elseif($_POST['szervezo'] == "fls"){
+    }elseif($_POST['szervezo'] == 0){
       $szervezo = 0;
     }
   	$password = md5($password_1);//Jelszó titkosítása, mielőtt az adatbázisban eltároljuk
@@ -65,7 +62,7 @@ if (isset($_POST['reg_user'])) {
   			  VALUES('$username', '$email', '$password', '$szervezo')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
-    $_SESSION['rang'] = $rang;
+    $_SESSION['rang'] = $szervezo;
   	$_SESSION['success'] = "Sikeres bejelentkezés";
   	header('location: index.php');
   }

@@ -23,7 +23,11 @@ else{
    echo "Csatlakozás Sikeres!";
 }
 // ESEMÉNY FELTÖLTÉSE
-
+// Hibakezelés, ha rendes user próbálná link alapján megnyitni az upload.php-t
+if ($_SESSION['rang'] < 1){
+  $_SESSION['success'] = "Nice try";
+  header('location: index.php');
+}else{
 
 if (isset($_POST['upload_event'])) {
   // Az esemény feltöltéshez szükséges adatok eltárolása
@@ -59,7 +63,7 @@ if (isset($_POST['upload_event'])) {
     header('location: index.php');
   }
 }
-
+}
 
 
 
