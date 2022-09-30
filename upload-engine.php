@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include("connect.php");
 // Változók létrehozása
 $nev = "";
 $kep = "";
@@ -13,15 +13,7 @@ $jegylink = "";
 $errors = array(); 
 
 // Csatlakozás az adatbázishoz
-$db = mysqli_connect('localhost', 'redfly_buliappuser', 'buliappuser','redfly_buliapp');
-
-//Csatlakozás ellenőrzése
-if (!$db) {
-    die("Csatlakozás Sikertelen: " . $db->connect_error);
-}
-else{
-   echo "Csatlakozás Sikeres!";
-}
+$db = $conn;
 // ESEMÉNY FELTÖLTÉSE
 // Hibakezelés, ha rendes user próbálná link alapján megnyitni az upload.php-t
 if ($_SESSION['rang'] < 1){

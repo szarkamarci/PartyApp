@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include("connect.php");
 // Változók létrehozása
 $username = "";
 $email    = "";
@@ -8,15 +8,8 @@ $szervezo = 0;
 $errors = array(); 
 
 // Csatlakozás az adatbázishoz
-$db = mysqli_connect('localhost', 'redfly_buliappuser', 'buliappuser','redfly_buliapp');
+$db = $conn;
 
-//Csatlakozás ellenőrzése
-if (!$db) {
-    die("Csatlakozás Sikertelen: " . $db->connect_error);
-}
-else{
-   echo "Csatlakozás Sikeres!";
-}
 
 // FELHASZNÁLÓ REGISZTRÁCIÓ
 if (isset($_POST['reg_user'])) {
@@ -103,5 +96,3 @@ if (isset($_POST['login_user'])) {
   }
 }
 
-
-?>

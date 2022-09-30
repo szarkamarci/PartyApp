@@ -50,10 +50,13 @@
 
     	<p>Üdvözöllek,  <strong><?php echo $_SESSION['username']; echo role($_SESSION['rang']); ?></strong></p>
     	<p> <a href="index.php?logout='1'" style="color: red;">Kijelentkezés</a> </p>
+		<div class="input-group">
+			<a href='table.php'>Események</a>
+			</div>
 		<?php if($_SESSION['rang'] > 1) : ?>
-			<label>Szervező jog</label>
-			<input type="text" name="jogok">
-		<?php endif ?>	
+			<div class="input-group">
+			<a href='upload.php'>Admin Panel</a>
+			</div>		<?php endif ?>	
 		<?php if($_SESSION['rang'] > 0) : ?>
 			<div class="input-group">
 			<a href='upload.php'>Esemény feltöltése</a>
