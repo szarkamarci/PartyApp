@@ -126,9 +126,9 @@ Hétköznapokban, böngészés, véletlenszerű böngésző, későbbiekben tele
 ![](login.png)
 
 A reszponzív webdizájn megjelenítése érdekében a leghatásosabb felbontások:
-asztali kijelzők:  __1024×768 - 1920×1080__.
-mobil kijelzők:  __360×640 - 414×896__.
-tablet kijelzők: __601×962 - 1280×800__.
+**asztali kijelzők:  __1024×768 - 1920×1080__.**
+**mobil kijelzők:  __360×640 - 414×896__.**
+**tablet kijelzők: __601×962 - 1280×800__.**
 
 ####  Fogalomtár:
 
