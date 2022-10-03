@@ -14,7 +14,6 @@
     
     3. Funkcionális specifikáció
 
-    4. Jogi követelmények
 
 
 ## Követelmények
@@ -129,6 +128,10 @@ A reszponzív webdizájn megjelenítése érdekében a leghatásosabb felbontás
 **asztali kijelzők:  __1024×768 - 1920×1080__.**
 **mobil kijelzők:  __360×640 - 414×896__.**
 **tablet kijelzők: __601×962 - 1280×800__.**
+
+#### Verziókezelés:
+
+A verziókezelői tevékenységek végrehajtására a Git nyílt forráskódú, elosztott verziókezelő szoftvert használjuk
 
 ####  Fogalomtár:
 
