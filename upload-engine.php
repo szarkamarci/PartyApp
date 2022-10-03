@@ -54,7 +54,10 @@ if (isset($_POST['upload_event'])) {
     $_SESSION['success'] = "Sikertelen feltöltés";
     header('location: index.php');
   }
-}
+} elseif (isset($_POST['back'])){
+    header('location: index.php');
+}  
+
 }
 
 

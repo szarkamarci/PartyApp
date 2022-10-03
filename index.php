@@ -47,21 +47,21 @@
 
  
     <?php  if (isset($_SESSION['username'])) : ?>
-
     	<p>Üdvözöllek,  <strong><?php echo $_SESSION['username']; echo role($_SESSION['rang']); ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">Kijelentkezés</a> </p>
-		<div class="input-group">
-			<a href='table.php'>Események</a>
-			</div>
 		<?php if($_SESSION['rang'] > 1) : ?>
-			<div class="input-group">
-			<a href='upload.php'>Admin Panel</a>
-			</div>		<?php endif ?>	
+		<div class="input-group">
+  	  		<button type="submit" class="btn" onclick="location.href='admin.php'">Admin panel</button>
+  		</div>
+		<?php endif ?>	
 		<?php if($_SESSION['rang'] > 0) : ?>
-			<div class="input-group">
-			<a href='upload.php'>Esemény feltöltése</a>
-			</div>
-		<?php endif ?>		
+		<div class="input-group">
+  	  	<button type="submit" class="btn" onclick="location.href='upload.php'">Esemény feltöltése</button>
+  		</div>
+		<?php endif ?>
+		<div class="input-group">
+  	  		<button type="submit" class="btn" onclick="location.href='table.php'">Események</button>
+  		</div>
+		<p> <a href="index.php?logout='1'" style="color: red;">Kijelentkezés</a> </p>		
     <?php endif ?>
 </div>
 		

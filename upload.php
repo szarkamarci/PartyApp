@@ -18,11 +18,11 @@
   	</div>
   	<div class="input-group">
   	  <label>Kép</label>
-  	  <input type="text" name="kep" value="<?p	hp echo $kep; ?>">
+  	  <input type="text" name="kep" value="<?php echo $kep; ?>">
   	</div>
   	<div class="input-group">
   	  <label>Időpont</label>
-  	  <input type="date" name="idopont" value="<?php echo $idopont; ?>">
+  	  <input type="datetime-local" name="idopont" value="<?php echo $idopont; ?>">
   	</div>
   	  	<div class="input-group">
   	  <label>Leírás</label>
@@ -43,6 +43,9 @@
   	<div class="input-group">
   	  <button type="submit" class="btn" name="upload_event">Esemény feltöltése</button>
   	</div>
+	<div class="input-group">
+    <button type="submit" name="back"  class="btn">Vissza</button>
+	</div>
   </form>
 </body>
 </html>

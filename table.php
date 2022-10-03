@@ -56,7 +56,7 @@ include("events.php");
 </div>
 </div>
 <div class="input-group">
-    <button onclick="window.location.href='index.php'">Vissza</button>
+    <button onclick="window.location.href='index.php'"  class="btn">Vissza</button>
 </div>
 </body>
 </html>

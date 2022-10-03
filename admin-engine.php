@@ -12,3 +12,11 @@ if ($_SESSION['rang'] < 2){
   $_SESSION['success'] = "Nincs jogosultsága";
   header('location: index.php');
 }else{
+  if (isset($_POST['delete_event'])) {
+    echo "Jó";
+  }elseif (isset($_POST['back'])){
+    header('location: index.php');
+  }
+}
+
+  ?>
