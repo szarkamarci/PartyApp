@@ -46,6 +46,46 @@ A tervezési folyamatokat követően a fejlesztést verziókezelő segítségév
 A frontend fejlesztéséhez php, javascript, html és css nyelven történik.
 A backend fejlesztéséhez MySQL és php nyelveket használ a fejlesztőcsapat. Az adatbázis kapcsolásának táblájáról kép is található a dokumentációban. Az adatbázis fejlesztése során a fejlesztők a stabilitás mellett a redundancia csökkentést egyik fő céljukként tűzték ki az adatok gyorsabb elérésének érdekében.
 
+Az előrehaladás következő hetekre tekintve a frontend és backend teljeskörű kifejlesztése a cél. A login felület dizájnja is megváltozott, egy, az app nevéhez sokkal jobban illő kinézet, mely valóban egy bulifotót tartalmaz.
+A belépést követően megjelenő felület kinézetének végleges ötlete is megszületett.
+A weboldal felületének tetején megtalálható lesz egy top bar, több mely részletei:
+A belépést követően a felhasználó átlagos weboldal kinézetéhez hűen 5 menüpontot pillanthat meg. 
+Az első a nevét és rangját tükrözi, funkcióval nem ellátott, a név a beállítotott becenevet jeleníti meg, ha nincs, alapértelmezetten a felhasználó regisztrált nevét fogja használni.
+A második a Profilom menüpont, mely funkciója arra szolgál, hogy a felhasználó személyes adatait módosíthatja, ezek között a jelszót, becenevét.
+Az események menüpontban minden felhasználó számára meg fog jelenni egy kérdés, amire több válasz érkezhet, mi alapján szeretne eseményeket látni:
+- Legnépszerűbb események.
+A kedvencekbe kerülést mérjük, majd ez alapján a legkedveltebb eseményeket csökkenő sorrendben kilistázzuk. Ez a statisztika a szervezők számára is elérhető lesz, amivel mérhető lesz saját eseményének népszerűsége és leendő látogatottságának becslése.
+- Közelben lévő események.
+A közelben lévő eseményeket a felhasználók a jelenlegi helyzetük alapján fogják látni. Ezt az oldal betöltésekor a böngésző kérni fogja, hogy a felhasználó engedélyezze helyadatinak a megosztását. Itt engedélyeztetheti vagy tilthatja, amennyiben korábban tiltotta, az oldal ismét megkéri az engedélyezésre, annak érdekében, ha funkciót rendeltetésszerűen szeretné használni, ellenkező esetben kénytelen lesz a további funkciókat használni.
+- Legrosszabbra értékelt események
+A legtöbbször "kukába" helyzett eseményeket listázza, csökkenő sorrendben. Ez a statisztika a szervezők számára is elérhető lesz, amivel mérhető lesz saját eseményének népszerűsége és leendő látogatottságának becslése.
+A következő menüpont a "szervezés" névre hallgat, ami kizárólag azoknak a felhasználóknak jelenik meg, akik szervező ranggal rendelkeznek. Itt a szervezés menüpontban rengeteg lehetősége nyílik a rendezvényszervezésre jogosult felhasználóknak. 
+A teljesség igénye nélkül: 
+- Események feltöltése
+
+![](esemenyfeltoltes.png)
+
+Itt a feltöltő __html__  űrlap teljes kinézete meg fog változni, a bekért adatok összesége nagyrészben végleges.
+A kép mezőnél egy fájl feltöltése ikon fog megjelenni. Itt a fájlt feltöltjük a tárhelyünkön lévő mappába, majd az adatbázisba magát a fájl nevét tároljuk le, vagy az elérési útvonalat. Itt limitálva lesz a feltöltés mérete.
+Az időpont mezőnél rengeteg dolog fog változni. Köztük az esemény kezdési és befejezési időpontját is meg fogjuk tudni adni, nem csak a dátumát, ezzel lehetőséget adva a többnapos rendezvényeknek, vagy fesztiváloknak.
+A leírás egy hosszabb mező lesz, amit karakterekben fogunk limitálni.
+Az esemény helyszínéhez létre fogunk hozni egy új táblát az adatbázisunkban, a redundancia csökkentése érdekében. Ebben a táblában előreláthatólag szerepelni fog egy auto increment mező, mely a helyszín azonosítóját hivatott megadni, ezentúl szerepleni fog a helyszín neve, illetve a helyszín pontos címe, több részletre bontva (irányítószám, városnév, közterület neve, közterület jellege, házszám, emelet, ajtó, esetleges egyéb információk.)
+A felhasználónak egy kereséssel ellátott legördülő menü fog megjelenni az űrlap részeként, melyben megkeresheti az eddigi szervezők által feltöltött eseményhelyszíneket.
+Amennyiben a szervező nem találja a leendő eseménye helyszínét, egy gombnyomással hozzá is adhatja ezt adatbázisunkhoz.
+Amikor az adott gombra kattint eltűnik a dropdown mező és a helyére megjelennek azok a mezők, melyek szükségesek az adatbázis teljeskörű kitöltéséhez.
+Az események típusa is egy lenyíló mezővé fog alakulni, ahol előre megadott lehetőségek közül a szervező kiválaszthatja a leendő eseményének jellegét (koncert, konferencia, party)
+- Események törlése
+Az adott felhasználó által feltöltött eseményeket a szervező egy gomb megnyomásával törölheti, de a véletlen elkerülése érdekében egy megerősítő kérdést kap, hogy biztos-e cselekedetében. Az esemény törlésével az eseményhez tartozó MINDEN jellegű adat törlődik az adatbázisból (statiszitka, leírás).
+- Meglévő események teljeskörű szerkesztése
+Az eseményre kattintva szerkeszthető az eseményhez tartozó összes paraméter, ezen változtatásokat a mentés gombra kattintva el kell menteni, enélkül érvénytelen az összes módosítás.
+- A kedveltségre vonatkozó statisztika megjelenítése
+Ahogy korábban említettük, kifejezetten erre a célra kitalált algoritmussal mérni tudjuk az események népszerűségét. Itt összességében nézzük a statisztikákat, tehát láthatjuk azt a pontszámot, ami alapján mi is rangsoroljuk az eseményt (kedvelések és "kukázások" összege).
+Ezen felül megmutatjuk a kedvelések és kukázások arányát is, valamint ezeket diagramon is ábrázoljuk.
+
+Kijelentkezés menüpontban a felhasználó kijelentkezhet fiókjából, ekkor a weboldal visszadobja a bejelentkezés felülethez.
+
+A weboldal cookiekat is fog alkalmazni, a helymeghatározáshoz biztosan.
+
 ![](table_connections.png)
 
 #### Adatmodell leírása
@@ -167,6 +207,24 @@ Az MD5-kódolást az RSA algoritmus megalkotóinak egyike, Ronald L. Rivest prof
 
 2005 óta elektronikus aláírás területen használata nem javasolt, és 2010. december 31-ével az utódja, az SHA-1 algoritmus is kiváltandó az SHA-256 algoritmussal.
 
+__Cookie-k és egyéb technológiák__
+
+Mi az a cookie?
+
+A HTTP-süti (általában egyszerűen süti, illetve angolul cookie) egy információcsomag, amelyet a szerver küld a webböngészőnek, majd a böngésző visszaküld a szervernek minden, a szerver felé irányított kérés alkalmával. A sütiket maga a webszerver hozza létre a böngésző segítségével a felhasználó gépén, ahol azok egy elkülönített könyvtárban kerülnek tárolásra. Lou Montulli, a Netscape Communications egykori alkalmazottja használta először a süti technikát a webes kommunikációban.
+
+Hogyan és miért használjuk a cookie-kat? 
+
+A süti bármilyen, a kiszolgáló által meghatározott információtartalmat hordozhat. Az eljárás célja az állapot bevezetése az alapvetően állapotmentes HTTP tranzakcióba. Sütik hiányában minden egyes weboldal (vagy erőforrás) lekérése elszigetelt esemény, gyakorlatilag független a site többi oldalának lekérésétől.
+
+Ha a böngésző visszaküld egy sütit, a kiszolgálónak lehetősége van összekapcsolni az aktuális kérést a korábbiakkal. Leggyakrabban egy adott weboldal regisztrált felhasználóinak azonosítására, „bevásárlókosár” nyilvántartására vagy látogatók nyomon követésére használják.
+
+Sütit létrehozhat a kiszolgálón futó CGI-program és a böngészőben végrehajtott kliensoldali script (például JavaScript) is.
+
+2015. október 1-től az EU-s jogszabályokhoz igazodva a magyarországi weboldalakon is kötelező a látogató beleegyezését kérni, ha a weboldal cookie-kat helyez el a látogató gépén.
+
+A 2003. évi C. törvény az elektronikus hírközlésről 155. §[1] alapján általánosan elmondható, hogy ha a weboldal cookie-kban tárol látogatói adatokat – például Google Analyticsszel követi a felhasználó böngészését, hogy abból később anonim statisztikákat tudjon készíteni, webshopkosár vagy bejelentkezés van rajta –, akkor fel kell hívni rá a felhasználó figyelmét, hogy sütiket kap a gépére.
+
 ### Források
 
 https://hu.wikipedia.org/wiki/MD5
@@ -178,3 +236,5 @@ https://lexiq.hu/back-end
 https://hu.wikipedia.org/wiki/Redundancia
 
 https://hu.wikipedia.org/wiki/Adatb%C3%A1zis
+
+https://hu.wikipedia.org/wiki/HTTP-s%C3%BCti

@@ -22,7 +22,7 @@
   	</div>
   	<div class="input-group">
   	  <label>Időpont</label>
-  	  <input type="datetime-local" name="idopont" value="<?php echo $idopont; ?>">
+  	  <input type="date" name="idopont" value="<?php echo $idopont; ?>">
   	</div>
   	  	<div class="input-group">
   	  <label>Leírás</label>
