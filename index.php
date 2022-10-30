@@ -3,12 +3,12 @@
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "Jelentkezz be először!";
-  	header('location: login.php');
+  	header('location: /login/index.php');
   }
   if (isset($_GET['logout'])) {
   	session_destroy();
   	unset($_SESSION['username']);
-  	header("location: login.php");
+  	header("location: /login/index.php");
   }
   function role($permission) {
 	if($permission == 0){

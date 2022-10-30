@@ -117,3 +117,20 @@ input[type="submit"]:hover{
 .signup_link a:hover{
   text-decoration: underline;
 }
+.szervezo input{
+  width: 50%;
+  margin: 20px 0px 40px 0px;
+  height: 30px;
+  background: none;
+  outline: none;
+}
+.szervezo label{
+  position: relative;
+  top : -10px;
+  color: #666666;
+  font-size: 20px;
+  transition: .5s;
+}
+#warn{
+ font-size: 10px;
+}

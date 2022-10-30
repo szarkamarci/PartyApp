@@ -27,3 +27,14 @@ var swiper = new Swiper(".slide-content", {
         },
     },
   });
+
+  $('#trapezoid').mouseleave(function() {
+    $('#trapezoid').css({
+          'margin-top': '-53px'
+      }); 
+  }).mouseenter(function() {
+    $('#trapezoid').css({
+          'margin-top': '0px'
+      }); 
+  });
+             
