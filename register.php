@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="style2.css">
 </head>
 <body>
+<div class="bg">	
   <div class="center">
   	<h2>Regisztráció</h2>
   <form method="post" action="register.php">
@@ -44,6 +45,7 @@
         Már van fiókja? <a href="login.php">Bejelentkezek!</a>
     </div>
   </form>
+</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
