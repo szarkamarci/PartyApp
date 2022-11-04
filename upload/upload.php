@@ -6,7 +6,8 @@
   <link rel="stylesheet" type="text/css" href="../css/logreg.css">
 </head>
 <body>
-  <div class="header">
+<div class="bg2">
+  <div class="center">
   	<h2>Esemény feltöltés</h2>
   <form method="post" action="upload.php">
   	<?php include('../errors.php'); ?>
@@ -45,9 +46,10 @@
 		<span></span>
 		<label>Jegy link</label>
   	</div>
-  	<button type="submit" class="btn" name="upload_event">Esemény feltöltése</button>
-    <button type="submit" name="back"  class="btn">Vissza</button>
+	<input type="submit" value="Esemény feltöltés" name="upload_event">
+	<input type="submit" value="Vissza" name="back">
   </form>
+</div>
 </div>
 </body>
 </html>

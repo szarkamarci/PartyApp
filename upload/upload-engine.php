@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connect.php");
+include("../connect.php");
 // Változók létrehozása
 $nev = "";
 $kep = "";
@@ -55,7 +55,7 @@ if (isset($_POST['upload_event'])) {
     header('location: index.php');
   }
 } elseif (isset($_POST['back'])){
-    header('location: index.php');
+    header('location: ../index2.php');
 }  
 
 }
