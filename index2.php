@@ -30,27 +30,36 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PartyApp - Főoldal</title>
-        <!-- Swiper CSS -->
         <link rel="stylesheet" href="swiper-bundle.min.css">
-        <!-- CSS -->
         <link rel="stylesheet" href="style.css">
-        <!--font awesome-->
         <script src="https://kit.fontawesome.com/5a99d1260f.js" crossorigin="anonymous"></script>
                                         
     </head>
     <body>
-    <div class="bg">
-    <nav class="navbar">
-        <div id="trapezoid">
-            <a href="#About" >About</a>
-            <a href="#About" >About</a>
-            <?php  if (isset($_SESSION['username'])) : ?>
-                <p><strong><?php echo $_SESSION['username']; echo role($_SESSION['rang']); ?></strong></p>
-            <?php endif ?>
-            <a href="#About" >About</a>
-            <a href="index2.php?logout='1'" class="logout">Kijelentkezés</a>
+    <div id="container">
+
+        <nav>
+        <div id="logo">
+            BuliApp
         </div>
-    </nav>
+        <ul>
+            <li><a href="#">Főoldal</a></li>
+            <li><a href="#">Kedvencek</a></li>
+            <li><a href="#">Profil</a></li>
+            <li class="dropdown" onmouseover="hover(this);" onmouseout="out(this);"><a href="#">Események kezelése &nbsp;<i class="fa fa-caret-down"></i></a>
+            <div class="dd">
+                <div id="up_arrow"></div>
+            <ul>
+
+                <li><a href="upload/upload.php">Feltöltés</a></li>
+                <li><a href="#">Statisztika</a></li>
+            </ul>
+            </div>
+            </li>
+            <li><a href="#">Admin panel</a></li>
+            <li><a href="#">Kijelentkezés</a></li>
+        </nav>
+    </div>
         <div class="slide-container swiper">
             <div class="slide-content">
                 <div class="card-wrapper swiper-wrapper">
@@ -169,13 +178,8 @@
 
         </div>
 
-
-    </div>  
+ 
     </body>
-    
-        <!-- Swiper JS -->
     <script src="swiper-bundle.min.js"></script>
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </html>
