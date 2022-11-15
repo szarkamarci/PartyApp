@@ -31,51 +31,58 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PartyApp - Főoldal</title>
-        <link rel="stylesheet" href="swiper-bundle.min.css">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <script src="https://kit.fontawesome.com/5a99d1260f.js" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
+</head>
+<body>
+<header class="wrapper bimage">
 
-                                        
-    </head>
-    <body>
-    <div id="container">
+    <input type="checkbox" id="show_search">
+    <h1 class="logo">BULI APP</h1>
+    <h1 class="logo_2">BULI APP</h1>
+</header>
+<div class="main_dropdown_container">
+   
+    <div class="dropdown_logo_bar_li" onclick="toggle_bar()" id="toggle_bar" ><i class="fas fa-bars dropdown_logo_bar bar " ></i></div>
 
-        <nav>
-        <div id="logo">
-            BuliApp
-        </div>
-        <ul>
-            <li><a href="#">Főoldal</a></li>
-            <li><a href="#">Kedvencek</a></li>
-            <li><a href="#">Profil</a></li>
-            <li class="dropdown" onmouseover="hover(this);" onmouseout="out(this);"><a href="#">Események kezelése &nbsp;<i class="fa fa-caret-down"></i></a>
-            <div class="dd">
-                <div id="up_arrow"></div>
-            <ul>
+    <nav class="navbar_container toggle">
+            <div class="main_navbar">
+               
+                <ul class="main_navbar_ul">
+                
+                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Főoldal</a></li>
+                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Kedvencek</a></li>
+                    <li class="navbar_level_1_li ">
+                        <a href="" class="navbar_level_1_link">Események kezelése</a>
+                  
+                            <ul class="dropdown_level_1">
+                                    <li class="navbar_level_2_li"><a href="upload/upload.php" class="navbar_level_2_link">Feltöltés</a></li>
+                                    <li class="navbar_level_2_li"><a href="#" class="navbar_level_2_link">Statisztika</a></li>
 
-                <li><a href="upload/upload.php">Feltöltés</a></li>
-                <li><a href="#">Statisztika</a></li>
-            </ul>
+                            </ul>
+                    </li>
+                    </li>
+                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Profil</a></li>
+					<li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Admin Panel</a></li>
+          <div class="logout">
+					<li class="navbar_level_1_li"><a href="index2.php?logout='1'" class="navbar_level_1_link">Kijelentkezés</a></li>
+          </div>
+                </ul>
+
             </div>
-            </li>
-            <li><a href="#">Admin panel</a></li>
-            <li><a href="index2.php?logout='1'">Kijelentkezés</a></li>
-        </nav>
-    </div>
-
+    </nav>
+</div>
     <div class="external_frame">
       <div class="bad_rated">
-        <button type="submit" id="good"><i class="fa-regular fa-heart" aria-hidden="true"></i></i></button>
-        <button type="submit" id="bad"><i class="fa-regular fa-star" aria-hidden="true"></i></i></i></button>
-        <button type="submit" id="bad"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i></i></i></button>
+        <button type="submit" class="good"><i class="fa-regular fa-heart" aria-hidden="true"></i></i></button>
+        <button type="submit" class="good"><i class="fa-regular fa-star" aria-hidden="true"></i></i></i></button>
+        <button type="submit" class="good"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i></i></i></button>
       </div>
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 86d7f13793d7f0ce3f1b5436cbffb43c32e9fd94
       <div class="card-container">
           <div class="card-base">
               <div class="card-image">     
@@ -103,32 +110,29 @@
                   </a>
               </div>
       </div>
-      <div class="well_rated">
-        <button type="submit" id="g"><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
-        <button type="submit" id="god"><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
-        <button type="submit" id="gd"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
       </div>
-    </div>
+      <div class="well_rated">
+        <button type="submit" class="good"><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
+        <button type="submit" class="good"><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
+        <button type="submit" class="good"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
+      </div>
+   
     <script type="text/javascript">
       let counter = 0;
       const events = <?php echo json_encode($fetchData); ?>; 
-      const good = document.getElementById('good');
-      document.getElementById('event_name').innerText = events[counter].nev;
-      document.getElementById('card_img').src = events[counter].kep;
-      document.getElementById('event_date').innerText = events[counter].idopont;
-      document.getElementById('event_desc').innerText = events[counter].leiras;
-      document.getElementById('event_location').innerText = events[counter].helyszin;
-      document.getElementById('event_link').href = events[counter].jegylink;
-      good.addEventListener('click', (e) => {
-      counter++;
-      console.log(counter);
-      document.getElementById('event_name').innerText = events[counter].nev;
-      document.getElementById('card_img').src = events[counter].kep;
-      document.getElementById('event_date').innerText = events[counter].idopont;
-      document.getElementById('event_desc').innerText = events[counter].leiras;
-      document.getElementById('event_location').innerText = events[counter].helyszin;
-      document.getElementById('event_link').href = events[counter].jegylink;});
+      const good = document.getElementsByClassName('good');
+      card_infos();
+      for (var i = 0; i < good.length; i++) {
+        good[i].addEventListener("click", function () {
+        counter++;
+        console.log(counter);
+        card_infos();
+        });
+    }
 
+
+
+      
       
         </script>
     </body>

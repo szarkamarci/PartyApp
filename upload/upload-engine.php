@@ -17,7 +17,6 @@ $db = $conn;
 // ESEMÉNY FELTÖLTÉSE
 // Hibakezelés, ha rendes user próbálná link alapján megnyitni az upload.php-t
 if ($_SESSION['rang'] < 1){
-  $_SESSION['success'] = "Nice try";
   header('location: ../index2.php');
 }else{
 
