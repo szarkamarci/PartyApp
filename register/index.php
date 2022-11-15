@@ -34,7 +34,7 @@
 		<div class="szervezo">
             <label>Szervező?</label>
             <input type="checkbox" name="szervezo" class="checkoption" onclick="if (document.getElementsByClassName('checkoption')[0].checked) {document.getElementById('warn').style.display = 'block';} else {document.getElementById('warn').style.display = 'none';}">
-              <div id="warn">A szervező jog beállítása hitelesítési kötelezettséggel jár, a regisztáció után az oldal adminisztátorai felveszik Önnel a kapcsolatot.<div/>
+              <div id="warn">A szervező jog beállítása hitelesítési kötelezettséggel jár, a regisztáció után az oldal adminisztátorai felveszik Önnel a kapcsolatot.</div>
   </form>
   </div>
     </div>
