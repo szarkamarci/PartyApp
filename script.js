@@ -1,55 +1,31 @@
-var swiper = new Swiper(".slide-content", {
-    slidesPerView: 3,
-    spaceBetween: 25,
-    loop: true,
-    centerSlide: 'true',
-    fade: 'true',
-    grabCursor: 'true',
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+function cim_bovebben() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
 
-    breakpoints:{
-        0: {
-            slidesPerView: 1,
-        },
-        520: {
-            slidesPerView: 2,
-        },
-        950: {
-            slidesPerView: 3,
-        },
-    },
-  });
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Több";
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Kevesebb";
+      moreText.style.display = "inline";
+    }
+  }
+function leiras_bovebben() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more2");
+    var btnText = document.getElementById("myBtn");
 
-  $('.expandHome').mouseover(function() {
-    $('.sub-home').css({
-          'display': 'block'
-      }); 
-  });
-  $('.subnavbtn').mouseover(function() {
-    $('.sub-home').css({
-          'display': 'none'
-      }); 
-  });
-  
-  $('#trapezoid').mouseleave(function() {
-    $('#trapezoid').css({
-          'margin-top': '-53px'
-      }); 
-      $('.sub-home').css({
-          'display': 'none'
-      }); 
-  }).mouseenter(function() {
-    $('#trapezoid').css({
-          'margin-top': '0px'
-      }); 
-  });
-                
-  
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Több";
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Kevesebb";
+      moreText.style.display = "inline";
+    }
+  }
+
