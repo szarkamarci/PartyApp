@@ -38,6 +38,9 @@
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
 </head>
+<video autoplay muted loop id="myVideo">
+  <source src="background.mp4" type="video/mp4">
+</video>
 <body>
 <header class="wrapper bimage">
 
@@ -93,6 +96,8 @@
 
               <div class="esemeny_nev" >
                 <p id ="event_name"></p>
+                <span id="dots">...</span><span id="more"></span>
+                <button onclick="nev_tobb()" id="myBtn">Bővebben</button>
               </div>
 
               <div class="esemeny_hely" >
@@ -104,6 +109,8 @@
 
               <div class="esemeny_leiras" >
                 <p id="event_desc"></p>
+                <span id="dots2">...</span><span id="more2"></span>
+                <button onclick="leiras_bovebben()" id="myBtn2">Bővebben</button>
               </div>
 
               <div class="esemeny_jegylink">
@@ -114,7 +121,7 @@
       </div>
       </div>
       <div class="well_rated">
-        <button type="submit" class="good" name="like">><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
+        <button type="submit" class="good" name="like"><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
         <button type="submit" class="good" name="good_place"><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
         <button type="submit" class="good" name="good_price"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
       </div>

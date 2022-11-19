@@ -1,31 +1,36 @@
-function cim_bovebben() {
+const nev_bovebben = document.getElementById('event_name').innerText = events[counter].nev;
+const leiras_tobb = document.getElementById('event_desc').innerText = events[counter].leiras;
+function nev_tobb() {
     var dots = document.getElementById("dots");
     var moreText = document.getElementById("more");
     var btnText = document.getElementById("myBtn");
 
     if (dots.style.display === "none") {
       dots.style.display = "inline";
-      btnText.innerHTML = "Több";
+      btnText.innerHTML = "Bővebben";
       moreText.style.display = "none";
     } else {
+      document.getElementById('more').textContent = events[counter].nev;
       dots.style.display = "none";
       btnText.innerHTML = "Kevesebb";
       moreText.style.display = "inline";
     }
   }
 function leiras_bovebben() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more2");
-    var btnText = document.getElementById("myBtn");
+    var dots2 = document.getElementById("dots2");
+    var moreText2 = document.getElementById("more2");
+    var btnText2 = document.getElementById("myBtn2");
 
-    if (dots.style.display === "none") {
-      dots.style.display = "inline";
-      btnText.innerHTML = "Több";
-      moreText.style.display = "none";
+    if (dots2.style.display === "none") {
+      dots2.style.display = "inline";
+      btnText2.innerHTML = "Bővebben";
+      moreText2.style.display = "none";
     } else {
-      dots.style.display = "none";
-      btnText.innerHTML = "Kevesebb";
-      moreText.style.display = "inline";
+      var page = window.open();
+      page.document.open();
+      page.document.write(events[counter].leiras);
+      document.getElementById('more2').innerText = events[counter].leiras;
+      btnText2.innerHTML = "Bővebben";
     }
   }
   let toggle = document.getElementsByClassName('toggle_bar');
@@ -42,10 +47,10 @@ function leiras_bovebben() {
 
 
 function card_infos(){
-    document.getElementById('event_name').innerText = events[counter].nev;
+    document.getElementById('event_name').innerText = events[counter].nev.substring(0, 20);
     document.getElementById('card_img').src = events[counter].kep;
     document.getElementById('event_date').innerText = events[counter].idopont;
-    document.getElementById('event_desc').innerText = events[counter].leiras;
+    document.getElementById('event_desc').innerText = events[counter].leiras.substring(0, 20);
     document.getElementById('event_location').innerText = events[counter].helyszin;
     document.getElementById('event_link').href = events[counter].jegylink;    
 }
