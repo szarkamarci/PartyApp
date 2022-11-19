@@ -50,12 +50,5 @@ function card_infos(){
     document.getElementById('event_link').href = events[counter].jegylink;    
 }
 
-let btns = document.querySelectorAll('button');
 
-for (i of btns) {
-  (function(i) {
-    i.addEventListener('click', function() {
-      document.querySelector('.msg').innerHTML = i.innerHTML;
-    });
-  })(i);
-}
+

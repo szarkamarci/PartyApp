@@ -78,9 +78,11 @@
 </div>
     <div class="external_frame">
       <div class="bad_rated">
-        <button type="submit" class="good"><i class="fa-regular fa-heart" aria-hidden="true"></i></i></button>
-        <button type="submit" class="good"><i class="fa-regular fa-star" aria-hidden="true"></i></i></i></button>
-        <button type="submit" class="good"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i></i></i></button>
+
+        <button type="submit" class="good" name="dislike"><i class="fa-regular fa-heart" aria-hidden="true"></i></i></button>
+        <button type="submit" class="good" name="wrong_place"><i class="fa-regular fa-star" aria-hidden="true"></i></i></i></button>
+        <button type="submit" class="good" name="wrong_price"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i></i></i></button>
+
       </div>
 
       <div class="card-container">
@@ -112,20 +114,23 @@
       </div>
       </div>
       <div class="well_rated">
-        <button type="submit" class="good"><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
-        <button type="submit" class="good"><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
-        <button type="submit" class="good"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
+        <button type="submit" class="good" name="like">><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
+        <button type="submit" class="good" name="good_place"><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
+        <button type="submit" class="good" name="good_price"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
       </div>
    
     <script type="text/javascript">
       let counter = 0;
       const events = <?php echo json_encode($fetchData); ?>; 
       const good = document.getElementsByClassName('good');
+      let event_id = events[counter].id;
       card_infos();
       for (var i = 0; i < good.length; i++) {
         good[i].addEventListener("click", function () {
         counter++;
+        event_id = events[counter].id;
         console.log(counter);
+        console.log(event_id);
         card_infos();
         });
     }
