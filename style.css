@@ -123,6 +123,12 @@ button:hover{
   justify-content: center;
   align-items: center;
 }
+#dislike:hover,#wrong_place:hover,#wrong_price:hover{
+  background-color: brown;
+}
+#like:hover,#good_place:hover,#good_price:hover{
+  background-color: #009933;
+}
 #more, #more2{
   display: none;
   width: auto;
@@ -194,7 +200,7 @@ button:hover{
   background: rgb(194, 206, 202);
   margin: auto;
   margin-top: 25px;
-  font-size: 17px;
+  font-size: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -210,6 +216,39 @@ button:hover{
   justify-content: center;
   align-items: center;
 }
+#dislike,#wrong_place,#wrong_price,#like,#good_place,#good_price{
+  position: relative;
+}
+#dislike::after,#wrong_place::after,#wrong_price::after,
+#like::after,#good_place::after,#good_price::after{
+  content: attr(data-title);
+  position: absolute;
+  background: #444;
+  color: #fff;
+  left: 0;
+  top: 100%;
+  font-size: 12px;
+  width: 100px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+  transition: 300ms;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(15px);
+}
+
+#dislike:hover::after,#wrong_place:hover::after,#wrong_price:hover::after
+{
+  opacity: 1;
+  transform: translateX(120px);
+}
+#like:hover::after,#good_place:hover::after,#good_price:hover::after{
+  opacity: 1;
+  transform: translateX(-150px);
+}
+
+
 
 /*N A V B A R*/
   

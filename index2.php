@@ -82,9 +82,9 @@
 </div>
     <div class="external_frame">
       <div class="bad_rated">
-        <button type="button" onclick="myFunction(this)" class="good" id="dislike"     value="1"><i class="fa-regular fa-heart" aria-hidden="true"></i></i></button>
-        <button type="button" onclick="myFunction(this)" class="good" id="wrong_place" value="3"><i class="fa-regular fa-star" aria-hidden="true"></i></i></i></button>
-        <button type="button" onclick="myFunction(this)" class="good" id="wrong_price" value="5"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i></i></i></button>
+        <button data-title="Nem tetszik az előadó" type="button" onclick="myFunction(this)" class="good" id="dislike" value="1"><i class="fa-regular fa-heart" aria-hidden="true"></i></i></button>
+        <button data-title="Nem tetszik a helyszín" type="button" onclick="myFunction(this)" class="good" id="wrong_place" value="3"><i class="fa-regular fa-star" aria-hidden="true"></i></i></i></button>
+        <button data-title="Túl drága" type="button" onclick="myFunction(this)" class="good" id="wrong_price" value="5"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i></i></i></button>
       </div>
 
       <div class="card-container">  
@@ -120,9 +120,9 @@
       </div>
       </div>
       <div class="well_rated">
-        <button type="button" onclick="myFunction(this)" class="good" id="like"       value="2" ><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
-        <button type="button" onclick="myFunction(this)" class="good" id="good_place" value="4" ><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
-        <button type="button" onclick="myFunction(this)" class="good" id="good_price" value="6" ><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
+        <button data-title="Tetszik az előadó" type="button" onclick="myFunction(this)" class="good" id="like"       value="2" ><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
+        <button data-title="Tetszik a hely" type="button" onclick="myFunction(this)" class="good" id="good_place" value="4" ><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
+        <button data-title="Kedvező ár" type="button" onclick="myFunction(this)" class="good" id="good_price" value="6" ><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
       </div> 
 
     <script type="text/javascript">

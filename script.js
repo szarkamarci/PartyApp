@@ -26,11 +26,10 @@ function leiras_bovebben() {
       btnText2.innerHTML = "Bővebben";
       moreText2.style.display = "none";
     } else {
-      var page = window.open();
-      page.document.open();
-      page.document.write(events[counter].leiras);
-      document.getElementById('more2').innerText = events[counter].leiras;
-      btnText2.innerHTML = "Bővebben";
+      document.getElementById('more2').textContent = events[counter].leiras;
+      dots2.style.display = "none";
+      btnText2.innerHTML = "Kevesebb";
+      moreText2.style.display = "inline";
     }
   }
   let toggle = document.getElementsByClassName('toggle_bar');
