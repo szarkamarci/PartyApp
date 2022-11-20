@@ -1,5 +1,6 @@
 <?php
 include("connect.php");
+include("server.php");
 
 // ESEMÉNYEK LISTÁZÁSA
     
@@ -35,6 +36,32 @@ include("connect.php");
     return $msg;
     }
     
-    
+    $my_events = my_events($db, $tableName, $columns);
+    function my_events($db, $tableName, $columns){
+      if(empty($db)){
+       $msg= "Csatlakozási hiba";
+      }elseif (empty($columns) || !is_array($columns)) {
+       $msg="columns Name must be defined in an indexed array";
+      }elseif(empty($tableName)){
+        $msg= "Table Name is empty";
+     }else{
+     $u_id =  $_SESSION['u_id'];
+     $columnName = implode(", ", $columns);
+     $query = "SELECT ".$columnName." FROM $tableName". " WHERE szervezo_id = $u_id". " ORDER BY id DESC";
+     $result = $db->query($query);
+
+     if($result== true){ 
+      if ($result->num_rows > 0) {
+         $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+         $msg= $row;
+      } else {
+         $msg= "No Data Found"; 
+      }
+     }else{
+       $msg= mysqli_error($db);
+     }
+     }
+     return $msg;
+     }
     
     ?>
