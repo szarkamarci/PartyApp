@@ -39,6 +39,9 @@
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
 </head>
+<video autoplay muted loop id="myVideo">
+  <source src="background.mp4" type="video/mp4">
+</video>
 <body>
 <header class="wrapper bimage">
 
@@ -92,9 +95,11 @@
 
               <div class="esemeny_nev" >
                 <p id ="event_name"></p>
+                <span id="dots">...</span><span id="more"></span>
+                <button onclick="nev_tobb()" id="myBtn">Bővebben</button>
               </div>
 
-              <div class="esemeny_hely" > 
+              <div class="esemeny_hely" >
                 <p id="event_location"></p>
               </div>
               <div class="esemeny_idopont" >
@@ -103,6 +108,8 @@
 
               <div class="esemeny_leiras" >
                 <p id="event_desc"></p>
+                <span id="dots2">...</span><span id="more2"></span>
+                <button onclick="leiras_bovebben()" id="myBtn2">Bővebben</button>
               </div>
 
               <div class="esemeny_jegylink">
@@ -119,19 +126,19 @@
       </div> 
 
     <script type="text/javascript">
+      let good = document.getElementsByClassName('good');
+      let value = 0;
       const events = <?php echo json_encode($fetchData); ?>;
       let counter = 0;  
       let event_id = events[counter].id;
       const divsToHide = document.getElementsByClassName("card-container");
-      card_infos();
-         
+      card_infos()
       for (var i = 0; i < good.length; i++) {
-
         good[i].addEventListener("click", function () {
           counter++; 
           event_id = events[counter].id; 
           card_infos();
-
+          
           $.post('server.php', {
           btnValue: value,
           event: event_id,

@@ -5,8 +5,11 @@
   <title>Buli App - Esemény feltöltés</title>
   <link rel="stylesheet" type="text/css" href="../css/logreg.css">
 </head>
+<video autoplay muted loop id="myVideo">
+  <source src="../background.mp4" type="video/mp4">
+</video>
 <body>
-<div class="bg2">
+<div class="bg2">	
   <div class="center">
   	<h2>Esemény feltöltés</h2>
   <form method="post" action="upload.php">
@@ -47,6 +50,7 @@
 		<label>Jegy link</label>
   	</div>
 	<input type="submit" value="Esemény feltöltés" name="upload_event">
+	<span></span>
 	<input type="submit" value="Vissza" name="back">
   </form>
 </div>

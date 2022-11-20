@@ -11,6 +11,18 @@ body{
   height: 100vh;
   overflow: hidden;
 }
+#myVideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 80%;
+}
 
 .bg {
   background-image: url("background.jpg");
@@ -19,13 +31,7 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
-.bg2 {
-  background-image: url("background2.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 .center{
   position: absolute;
   top: 50%;
@@ -140,4 +146,19 @@ input[type="submit"]:hover{
 }
 #warn{
  font-size: 10px;
+}
+
+
+input[type="submit"] {
+  margin-top: 4%;
+  margin-bottom: 4%;;
+}
+
+input[name="upload_event"]:hover {
+  background-color: #04b121;
+  }
+
+
+input[name="back"]:hover {
+background-color: #ff0000;
 }

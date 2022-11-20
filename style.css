@@ -15,13 +15,23 @@ body{
   min-height: 100vh;
   align-items: center;
   justify-content: center;  
-  background-image: url("Image00105.JPG");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+#myVideo {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 80%;
+}
 :root {
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
@@ -41,8 +51,11 @@ body{
   height: 500px;
   margin: 50px;
   border-radius: 30px;
-  box-shadow: 2px 2px 22px rgba(0,0,0,0.8);
-  background-color: #38ac51;
+  box-shadow: 2px 2px 22px rgba(0,0,0);
+  background-color: rgba(168, 56, 172, 0.7) ;
+  background-blend-mode:darken;
+  left: 50%;
+  top: 50%;
 }
 img{
   width: 350px;
@@ -59,7 +72,7 @@ img{
   background: rgb(194, 206, 202);
   margin: 0 auto;
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 18px;
   justify-content: center;
   align-items: center;
 }
@@ -72,7 +85,7 @@ img{
   margin: 0 auto;
   padding-left: 6px;
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 18px;
   justify-content: center;
   align-items: center;
 }
@@ -97,48 +110,38 @@ img{
   background: rgb(194, 206, 202);
   margin: 0 auto;
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 18px;
   justify-content: center;
   align-items: center;  
 }
 button{
-  display: flex;
-  width: 10%;
-  height: 40px;
-  border-radius: 10px;
+  border-radius: 6px;
   background: rgb(194, 206, 202);
-  margin: auto;
-  margin-top: 25px;
-  font-size: 17px;
-  justify-content: center;
-  align-items: center;
 }
 button:hover{
   background-color: darkgrey;
-  font-size: 20px;
   justify-content: center;
   align-items: center;
 }
 #more, #more2{
   display: none;
-  width: 400px;
-  background: rgba(122, 199, 35, 0.95);
+  width: auto;
+  height: auto;
+  background: rgba(102, 63, 175, 1);
   border-radius: 6px;
   position:absolute;
-  margin-top: 20px;
-  top: 50%;
-  left: 50%;
+  top: 8em;
+  left: 95ex;
   transform: translate(-50%,-50%);
   text-align: center;
-  padding: 0 30px 30px;
-  color: #333;
+  color: rgb(202, 197, 197);
   font-size: 20px;
   font-weight: bold;
   justify-content: center;
   align-items: center;
 }
 
-#myBtn{
+#myBtn, #myBtn2{
   display: flex;
   width: 30%;
   height: 30px;
@@ -152,7 +155,7 @@ button:hover{
   align-items: center;  
 }
 
-#myBtn:hover{
+#myBtn:hover,#myBtn2:hover{
   background-color: darkgrey;
   justify-content: center;
   align-items: center;
@@ -164,16 +167,19 @@ button:hover{
 }
 .bad_rated{
   padding-top: 100px;
-  width: 33%;
+  width: calc(100% / 3);
   height: 500px;
   padding-left: 100px;
 }
 .card-container{
-  width: 33%;
+  width: calc(100% / 3);
+  margin-left: auto;
+  margin-right: auto;
+  width: 30em;
 }
 .well_rated{
   padding-top: 100px;
-  width: 33%;
+  width: calc(100% / 3);
   height: 500px;
   padding-right: 100px;
 }
@@ -183,6 +189,26 @@ button:hover{
 .good{
   width: 100px;
   height: 100px;
+  display: flex;
+  border-radius: 10px;
+  background: rgb(194, 206, 202);
+  margin: auto;
+  margin-top: 25px;
+  font-size: 17px;
+  justify-content: center;
+  align-items: center;
+}
+#event_link{
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgb(194, 206, 202);
+  margin: auto;
+  margin-top: 25px;
+  font-size: 17px;
+  justify-content: center;
+  align-items: center;
 }
 
 /*N A V B A R*/
