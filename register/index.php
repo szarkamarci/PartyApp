@@ -4,7 +4,9 @@
 <head>
   <title>Buli App - Regisztráció</title>
   <link rel="stylesheet" type="text/css" href="../css/logreg.css">
-</head>
+  <script src="script.js"></script>
+  
+</head> 
 <body>
 <div class="bg">	
   <div class="center">
@@ -29,20 +31,34 @@
 		<div class="txt_field">
 			<input type="password" name="password_2">
 			<span></span>
-			<label>Jelszó még egyszer</label>
+			<label>Jelszó újra</label>
 		</div>
 		<div class="szervezo">
-            <label>Szervező?</label>
-            <input type="checkbox" name="szervezo" class="checkoption" onclick="if (document.getElementsByClassName('checkoption')[0].checked) {document.getElementById('warn').style.display = 'block';} else {document.getElementById('warn').style.display = 'none';}">
-              <div id="warn">A szervező jog beállítása hitelesítési kötelezettséggel jár, a regisztáció után az oldal adminisztátorai felveszik Önnel a kapcsolatot.</div>
-  </form>
-  </div>
-    </div>
-
-    <input type="submit" value="Regisztráció" name="reg_user">
-    <div class="signup_link">
+            <label for="myCheck">Szervező?</label>
+            <input id="myCheck" type="checkbox" name="szervezo">
+              <div id="warn" style="display:none">A szervező jog beállítása hitelesítési kötelezettséggel jár, a regisztáció után az oldal adminisztátorai felveszik Önnel a kapcsolatot.</div>
+		</div>
+    		<input type="submit" value="Regisztráció" name="reg_user">
+    	<div class="signup_link">
         Már van fiókja? <a href="../login/index.php">Bejelentkezek!</a>
-    </div>
+    	</div>
+	</form>
 </div>
+</div>
+<script>
+	document.getElementById("myCheck").addEventListener("click", role);
+
+	function role() {
+    var checkBox = document.getElementById("myCheck");
+    var text = document.getElementById("warn");
+    if (checkBox.checked == true){
+    text.style.display = 'block';
+    checkBox.value = 1;
+    } else {
+    text.style.display = 'none';
+    checkBox.value = 0;
+    }
+}
+</script>
 </body>
 </html>

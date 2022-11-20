@@ -63,4 +63,14 @@ function myFunction(elem){
   value = elem.value;
    }
 
-
+   function role() {
+    var checkBox = document.getElementById("myCheck");
+    var text = document.getElementById("warn");
+    if (checkBox.checked == true){
+      text.style.display = 'block';
+      checkBox.value = 1;
+    } else {
+      text.style.display = 'none';
+      checkBox.value = 0;
+    }
+    }

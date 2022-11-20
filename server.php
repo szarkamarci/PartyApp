@@ -55,11 +55,20 @@ if (isset($_POST['reg_user'])) {
   	$query = "INSERT INTO users (username, email, password, szervezo) 
   			  VALUES('$username', '$email', '$password', '$szervezo')";
   	mysqli_query($db, $query);
+    $query2 = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+  	$result = mysqli_query($db, $query2);
+    if (mysqli_num_rows($result) == 1) {
+      while($row = mysqli_fetch_assoc($result)){
+        $array = $row;
+      }  
+    $u_id = $array['id'];
+    $_SESSION['u_id'] = $u_id;
   	$_SESSION['username'] = $username;
     $_SESSION['rang'] = $szervezo;
   	$_SESSION['success'] = "Sikeres bejelentkezés";
   	header('location: ../index2.php');
   }
+}
 }
 
 // BEJELENZKEZÉS
