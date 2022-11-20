@@ -1,6 +1,7 @@
 <?php 
   include ("events.php");
-  session_start(); 
+  include ("server.php");
+
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "Jelentkezz be először!";
@@ -33,8 +34,8 @@
         <title>PartyApp - Főoldal</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-        <script src="https://kit.fontawesome.com/5a99d1260f.js" crossorigin="anonymous"></script>
         <script src="script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" >
 </head>
@@ -78,14 +79,12 @@
 </div>
     <div class="external_frame">
       <div class="bad_rated">
-
-        <button type="submit" class="good" name="dislike"><i class="fa-regular fa-heart" aria-hidden="true"></i></i></button>
-        <button type="submit" class="good" name="wrong_place"><i class="fa-regular fa-star" aria-hidden="true"></i></i></i></button>
-        <button type="submit" class="good" name="wrong_price"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i></i></i></button>
-
+        <button type="button" onclick="myFunction(this)" class="good" id="dislike"     value="1"><i class="fa-regular fa-heart" aria-hidden="true"></i></i></button>
+        <button type="button" onclick="myFunction(this)" class="good" id="wrong_place" value="3"><i class="fa-regular fa-star" aria-hidden="true"></i></i></i></button>
+        <button type="button" onclick="myFunction(this)" class="good" id="wrong_price" value="5"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i></i></i></button>
       </div>
 
-      <div class="card-container">
+      <div class="card-container">  
           <div class="card-base">
               <div class="card-image">     
                   <img id="card_img" src="" alt="">
@@ -95,7 +94,7 @@
                 <p id ="event_name"></p>
               </div>
 
-              <div class="esemeny_hely" >
+              <div class="esemeny_hely" > 
                 <p id="event_location"></p>
               </div>
               <div class="esemeny_idopont" >
@@ -114,31 +113,39 @@
       </div>
       </div>
       <div class="well_rated">
-        <button type="submit" class="good" name="like">><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
-        <button type="submit" class="good" name="good_place"><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
-        <button type="submit" class="good" name="good_price"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
-      </div>
-   
+        <button type="button" onclick="myFunction(this)" class="good" id="like"       value="2" ><i class="fa-solid fa-heart" aria-hidden="true"></i></i></button>
+        <button type="button" onclick="myFunction(this)" class="good" id="good_place" value="4" ><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
+        <button type="button" onclick="myFunction(this)" class="good" id="good_price" value="6" ><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
+      </div> 
+
     <script type="text/javascript">
-      let counter = 0;
-      const events = <?php echo json_encode($fetchData); ?>; 
-      const good = document.getElementsByClassName('good');
+      const events = <?php echo json_encode($fetchData); ?>;
+      let counter = 0;  
       let event_id = events[counter].id;
+      const divsToHide = document.getElementsByClassName("card-container");
       card_infos();
+         
       for (var i = 0; i < good.length; i++) {
+
         good[i].addEventListener("click", function () {
-        counter++;
-        event_id = events[counter].id;
-        console.log(counter);
-        console.log(event_id);
-        card_infos();
+          counter++; 
+          event_id = events[counter].id; 
+          card_infos();
+
+          $.post('server.php', {
+          btnValue: value,
+          event: event_id,
+          }, (response) => {
+          console.log(response);
         });
-    }
 
-
+        }
+      )};
 
       
-      
+
+  
+
         </script>
     </body>
 </html>

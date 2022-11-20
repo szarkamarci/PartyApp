@@ -51,4 +51,12 @@ function card_infos(){
 }
 
 
+let good = document.getElementsByClassName('good');
+let value = 0;
+
+
+function myFunction(elem){
+  value = elem.value;
+   }
+
 

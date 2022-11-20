@@ -4,6 +4,7 @@ include("connect.php");
 // Változók létrehozása
 $username = "";
 $email    = "";
+$u_id = 0;
 $szervezo = 0;
 $errors = array(); 
 
@@ -84,8 +85,8 @@ if (isset($_POST['login_user'])) {
         $array = $row;
       }
       $rang = $array['szervezo'];
-      $user_id = $array['id'];
-      $_SESSION['user_id'] = $user_id;
+      $u_id = $array['id'];
+      $_SESSION['u_id'] = $u_id;
   	  $_SESSION['username'] = $username;
       $_SESSION['rang'] = $rang;
   	  $_SESSION['success'] = "Sikeres bejelentkezés";
@@ -95,4 +96,21 @@ if (isset($_POST['login_user'])) {
   	}
   }
 }
+
+    // Checking, if post value is
+    // set by user or not
+    if(isset($_POST['btnValue'], $_POST['event']))
+    {
+      $user_id = $_SESSION['u_id'];
+      $value = $_POST['btnValue'];
+      $event_id = $_POST['event'];
+      
+      $query = "INSERT INTO ertekeles (user_id, esemeny_id, ertek) 
+      VALUES('$user_id','$event_id','$value')";
+      mysqli_query($db, $query);
+  }
+
+
+
+
 
