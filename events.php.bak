@@ -35,8 +35,11 @@ include("server.php");
     }
     return $msg;
     }
+<<<<<<< HEAD
+
+=======
     
-        $my_events = my_events($db, $tableName, $columns);
+    $my_events = my_events($db, $tableName, $columns);
     function my_events($db, $tableName, $columns){
       if(empty($db)){
        $msg= "Csatlakozási hiba";
@@ -63,6 +66,6 @@ include("server.php");
      }
      return $msg;
      }
-    
+>>>>>>> 42df39f7c28f6c01fea54bd660a203ba4cf664f9
     
     ?>
