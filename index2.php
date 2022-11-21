@@ -65,7 +65,7 @@
                   
                             <ul class="dropdown_level_1">
                                     <li class="navbar_level_2_li"><a href="upload/upload.php" class="navbar_level_2_link">Feltöltés</a></li>
-                                    <li class="navbar_level_2_li"><a href="#" class="navbar_level_2_link">Statisztika</a></li>
+                                    <li class="navbar_level_2_li"><a href="statistics.php" class="navbar_level_2_link">Statisztika</a></li>
 
                             </ul>
                     </li>
