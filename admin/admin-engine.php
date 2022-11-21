@@ -1,6 +1,5 @@
 <?php
-session_start();
-include("connect.php");
+include("../connect.php");
 // Változók létrehozása
 $errors = array(); 
 
@@ -8,15 +7,19 @@ $errors = array();
 $db = $conn;
 // ESEMÉNY FELTÖLTÉSE
 // Hibakezelés, ha rendes user vagy szervező próbálná link alapján megnyitni az upload.php-t
-if ($_SESSION['rang'] < 2){
-  $_SESSION['success'] = "Nincs jogosultsága";
-  header('location: index.php');
-}else{
+
+$query = "SELECT * FROM users ";
+$result1 = mysqli_query($db, $query);
+
+
+
   if (isset($_POST['delete_event'])) {
-    echo "Jó";
-  }elseif (isset($_POST['back'])){
-    header('location: index.php');
+    $option_val = $_POST['delete_event'];
+    echo $option_val;
   }
-}
+  
+
+
+
 
   ?>

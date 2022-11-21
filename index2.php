@@ -60,7 +60,7 @@
                 
                     <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Főoldal</a></li>
                     <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Kedvencek</a></li>
-                    <li class="navbar_level_1_li ">
+                    <?php if($_SESSION['rang'] > 0) : ?>  
                         <a href="" class="navbar_level_1_link">Események kezelése</a>
                   
                             <ul class="dropdown_level_1">
@@ -70,8 +70,11 @@
                             </ul>
                     </li>
                     </li>
+                    <?php endif ?>
                     <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Profil</a></li>
-					<li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Admin Panel</a></li>
+           <?php if($_SESSION['rang'] > 1) : ?>          
+					<li class="navbar_level_1_li"><a href="admin/index.php" class="navbar_level_1_link">Admin Panel</a></li>
+          <?php endif ?>
           <div class="logout">
 					<li class="navbar_level_1_li"><a href="index2.php?logout='1'" class="navbar_level_1_link">Kijelentkezés</a></li>
           </div>
@@ -135,10 +138,10 @@
       card_infos()
       for (var i = 0; i < good.length; i++) {
         good[i].addEventListener("click", function () {
-          counter++; 
+          
           event_id = events[counter].id; 
           card_infos();
-          
+          counter++;
           $.post('server.php', {
           btnValue: value,
           event: event_id,
