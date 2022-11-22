@@ -86,18 +86,16 @@
       <table class="table table-bordered">
        <thead><tr>
 
-         <th>Esemény neve</th>
-         <th>Nem tetszik az előadó</th>
-         <th>Nem tetszik a helyszín</th>
-         <th>Túl drága</th>
-         <th>Tetszik az előadó</th>
-         <th>Tetszik a helyszín</th>
-         <th>Kedvező ár</th>
+      <th>Esemény neve</th>
+      <th>Nem tetszik az előadó</th>
+      <th>Nem tetszik a helyszín</th>
+      <th>Túl drága</th>
+      <th>Tetszik az előadó</th>
+      <th>Tetszik a helyszín</th>
+      <th>Kedvező ár</th>
     </thead>
     <tbody>
-
       <tr>
-
       <td><?php echo $row1[0]; ?></td>
       <td><?php echo $row1[1];?></td>
       <td><?php echo $row1[2];?></td>
@@ -105,13 +103,7 @@
       <td><?php echo $row1[4];?></td>
       <td><?php echo $row1[5];?></td>
       <td><?php echo $row1[6];?></td>
-
-
-
-
-
      </tr>
-  
       <tr>
         <td colspan="8">
   </td>

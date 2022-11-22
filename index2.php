@@ -1,5 +1,4 @@
 <?php 
-  include ("events.php");
   include ("card-engine.php");
 
 
