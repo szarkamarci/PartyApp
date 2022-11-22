@@ -78,32 +78,52 @@
             </div>
     </nav>
 </div>
+<?php
+    $u_id =  $_SESSION['u_id'];
+    $sql1 = "SELECT id, nev FROM esemenyek WHERE szervezo_id = $u_id LIMIT 1";
+    $result1 = $conn->query($sql1);
 
-<div class="my_events">
-    <h1><?php echo $_SESSION['username'];?> eseményei:</h1>
-    <div class="esemenyek">
-    <?php
-            if(is_array($my_events)){      
-            $sn=1;
-            foreach($my_events as $data){
-            ?>
-            <?php echo $data['nev']??''; ?>
-                <?php
-                $sn++;}}else{ ?>
-                <?php echo $my_events; ?>
-                <?php
-                }?>
-        <table>
-            <tr>
-                <th>
-                
-                </th>
-            </tr>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-                <td>c</td>
-            </tr>
-        </table>
-    </div>
+    $sql2 = "SELECT ertek, COUNT(ertek) as osszeadva
+    FROM esemenyek 
+        INNER JOIN ertekeles ON esemenyek.id=esemeny_id 
+          WHERE szervezo_id = $u_id
+            GROUP BY nev,ertek
+            LIMIT 1";
+
+    $result2 = $conn->query($sql2);
+
+    if ($result1->num_rows > 0) {
+      // output data of each row
+      while($row = $result1->fetch_assoc()) {
+          echo "<p>" . $row['nev'] . "</p>";
+      }
+      // output data of each row
+      while($row = $result2->fetch_assoc()) {
+                switch ($row['ertek']) {
+                  case 1:
+                      echo "Nem tetszik az előadó: ";
+                      break;
+                  case 2:
+                      echo "Tetszik az előadó: ";
+                      break;
+                  case 3:
+                      echo "Nem tetszik a helyszín: ";
+                      break;
+                  case 4:
+                      echo "Tetszik a hely: ";
+                      break;
+                  case 5:
+                      echo "Túl drága: ";
+                      break;
+                  case 6:
+                      echo "Kedvező ár: ";
+                      break;
+              }
+                echo $row['osszeadva'];
+      }
+    } else {
+      echo "0 results";
+    }
+    ?>
+
 </div>
