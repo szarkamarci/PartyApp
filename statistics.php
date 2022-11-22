@@ -56,7 +56,7 @@
                
                 <ul class="main_navbar_ul">
                 
-                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Főoldal</a></li>
+                    <li class="navbar_level_1_li"><a href="index2.php" class="navbar_level_1_link">Főoldal</a></li>
                     <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Kedvencek</a></li>
                     <li class="navbar_level_1_li ">
                         <a href="" class="navbar_level_1_link">Események kezelése</a>
@@ -78,52 +78,50 @@
             </div>
     </nav>
 </div>
-<?php
-    $u_id =  $_SESSION['u_id'];
-    $sql1 = "SELECT id, nev FROM esemenyek WHERE szervezo_id = $u_id LIMIT 1";
-    $result1 = $conn->query($sql1);
+<div class="container">
+ <div class="row">
+   <div class="col-sm-8">
+   <?php while($row1 = mysqli_fetch_array($result1)):;?>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+       <thead><tr>
 
-    $sql2 = "SELECT ertek, COUNT(ertek) as osszeadva
-    FROM esemenyek 
-        INNER JOIN ertekeles ON esemenyek.id=esemeny_id 
-          WHERE szervezo_id = $u_id
-            GROUP BY nev,ertek
-            LIMIT 1";
+         <th>Esemény neve</th>
+         <th>Nem tetszik az előadó</th>
+         <th>Nem tetszik a helyszín</th>
+         <th>Túl drága</th>
+         <th>Tetszik az előadó</th>
+         <th>Tetszik a helyszín</th>
+         <th>Kedvező ár</th>
+    </thead>
+    <tbody>
 
-    $result2 = $conn->query($sql2);
+      <tr>
 
-    if ($result1->num_rows > 0) {
-      // output data of each row
-      while($row = $result1->fetch_assoc()) {
-          echo "<p>" . $row['nev'] . "</p>";
-      }
-      // output data of each row
-      while($row = $result2->fetch_assoc()) {
-                switch ($row['ertek']) {
-                  case 1:
-                      echo "Nem tetszik az előadó: ";
-                      break;
-                  case 2:
-                      echo "Tetszik az előadó: ";
-                      break;
-                  case 3:
-                      echo "Nem tetszik a helyszín: ";
-                      break;
-                  case 4:
-                      echo "Tetszik a hely: ";
-                      break;
-                  case 5:
-                      echo "Túl drága: ";
-                      break;
-                  case 6:
-                      echo "Kedvező ár: ";
-                      break;
-              }
-                echo $row['osszeadva'];
-      }
-    } else {
-      echo "0 results";
-    }
-    ?>
+      <td><?php echo $row1[0]; ?></td>
+      <td><?php echo $row1[1];?></td>
+      <td><?php echo $row1[2];?></td>
+      <td><?php echo $row1[3];?></td>
+      <td><?php echo $row1[4];?></td>
+      <td><?php echo $row1[5];?></td>
+      <td><?php echo $row1[6];?></td>
 
+
+
+
+
+     </tr>
+  
+      <tr>
+        <td colspan="8">
+  </td>
+    <tr>
+    <?php endwhile;?>
+    </tbody>
+     </table>
+   </div>
 </div>
+</div>
+</div>
+</body>
+</html>
