@@ -84,13 +84,16 @@
 <div>
 
 <form action="index.php" method="post">
-<select>
+<select name="taskOption">
 <?php while($row1 = mysqli_fetch_array($result1)):;?>
-<option value="<?php echo $row1[1];?>" id="optval"><?php echo $row1[1];?></option>
+<option value="<?php echo $row1[0];?>"id="optval"><?php echo $row1[1];?></option>
 <?php endwhile;?>
 </select>
-<button type="submit" name="delete_event" id="okButton">Ok</button>
+<button type="submit" name="set_user" id="okButton">Legyen tag</button>
+<button type="submit" name="set_szervezo" id="okButton">Legyen szervező</button>
+<button type="submit" name="set_admin" id="okButton">Legyen admin</button>
     </form>
+    
 
 </div>
 <script>
