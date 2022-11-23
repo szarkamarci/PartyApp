@@ -41,7 +41,7 @@ $result1 = mysqli_query($db, $query);
     $u_id = $_POST['taskOption'];
     echo $username;
 
-    $query_update = "UPDATE users SET szervezo = 1 WHERE id = $u_id";
+    $query_update = "UPDATE users SET szervezo = 2 WHERE id = $u_id";
     if(mysqli_query($db, $query_update)){
       echo "Record was updated successfully.";
   } else {
