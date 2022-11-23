@@ -120,6 +120,19 @@ if (isset($_POST['login_user'])) {
   }
 
 
+	/* csekk hany esemeny van feltoltve
+	  $sql = "SELECT COUNT(*) AS osszesesemeny FROM esemenyek";
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) {
+	  while($row = $result->fetch_assoc()) {
+		//$_SESSION['u_id'] = $u_id;
+		echo $row["osszesesemeny"];
+
+	  }
+	} else {
+	}
+	*/
 
 
 

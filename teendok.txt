@@ -1,0 +1,5 @@
+gombok tobb automatikus eltunes hogyha a kovetkezo esemenyre
+
+balazs pls segits
+phpba van egy lekerdezes, onnan adatokat at kellene adni a jsbe es az esemenyekosszesen valtozonak ezt az erteket kellene adni
+

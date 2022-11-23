@@ -83,7 +83,10 @@
             </div>
     </nav>
 </div>
-    <div class="external_frame">
+	<!-- LEGSZIVES NE NYULJ HOZZA -->
+	<div id="elfogyott" style="display:none; font-size:70;" class="elfogyottesemeny" > elfogyott minden</div>
+	
+    <div class="external_frame" id="frame">
       <div class="bad_rated">
         <button data-title="Nem tetszik az előadó" type="button" onclick="myFunction(this)" class="good" id="dislike" value="1"><i class="fa-regular fa-heart" aria-hidden="true"></i></i></button>
         <button data-title="Nem tetszik a helyszín" type="button" onclick="myFunction(this)" class="good" id="wrong_place" value="3"><i class="fa-regular fa-star" aria-hidden="true"></i></i></i></button>
@@ -128,33 +131,58 @@
         <button data-title="Kedvező ár" type="button" onclick="myFunction(this)" class="good" id="good_price" value="6" ><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
       </div> 
 
+
+
     <script type="text/javascript">
-      let good = document.getElementsByClassName('good');
+	  let good = document.getElementsByClassName('good');
+	  let esemenyekosszesen = 7;
       let value = 0;
       const events = <?php echo json_encode($fetchData); ?>;
       let counter = 0;  
       let event_id = events[counter].id;
       const divsToHide = document.getElementsByClassName("card-container");
       card_infos()
-      for (var i = 0; i < good.length; i++) {
-        good[i].addEventListener("click", function () {
-          
+	  for (var i = 0; i < good.length; i++) {
+		
+        good[i].addEventListener("click", function() {
+		
+	
+          counter++;
           event_id = events[counter].id; 
           card_infos();
-          counter++;
+         
           $.post('server.php', {
           btnValue: value,
           event: event_id,
           }, (response) => {
-          console.log(response);
+          console.log(response); 
         });
-
+		
         }
+		
+		
+		
+		
+		
+			
+		
+		
       )};
 
-      
+      //LEGSZIVES NE NYULJ HOZZA
+	  function cssmodosit() {
+		  var keret = document.getElementById("frame");
+		  var elfogyott = document.getElementById("elfogyott");
+		  
+		  if (counter==esemenyekosszesen-1) {
+			keret.style.display = "none";
+			elfogyott.style.display = "";
+			
+		  } else {
+		  }
+		}
 
-  
+	//idaig
 
         </script>
     </body>
