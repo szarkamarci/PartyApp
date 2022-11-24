@@ -47,6 +47,13 @@ if(isset($_POST['btnValue'], $_POST['event']))
       VALUES('$user_id','$event_id','$value')";
       mysqli_query($db, $query);
   }
+
+$query1 = "SELECT count(nev) FROM esemenyek";
+$result1 = mysqli_query($db, $query1);
+while($row1 = mysqli_fetch_array($result1)):
+  $count_events = $row1[0];
+endwhile;
+
 ?>
 
 

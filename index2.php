@@ -84,7 +84,7 @@
     </nav>
 </div>
 	<!-- LEGSZIVES NE NYULJ HOZZA -->
-	<div id="elfogyott" style="display:none; font-size:70;" class="elfogyottesemeny" > elfogyott minden</div>
+	<div id="elfogyott" style="display:none;" class="elfogyottesemeny" > elfogyott minden</div>
 	
     <div class="external_frame" id="frame">
       <div class="bad_rated">
@@ -130,26 +130,33 @@
         <button data-title="Tetszik a hely" type="button" onclick="myFunction(this)" class="good" id="good_place" value="4" ><i class="fa-solid fa-star" aria-hidden="true"></i></i></button>
         <button data-title="Kedvező ár" type="button" onclick="myFunction(this)" class="good" id="good_price" value="6" ><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i></i></button>
       </div> 
-
+      
 
 
     <script type="text/javascript">
 	  let good = document.getElementsByClassName('good');
-	  let esemenyekosszesen = 7;
+	  let esemenyekosszesen = <?php echo $count_events ?>;
+    var keret = document.getElementById("frame");
+		var elfogyott = document.getElementById("elfogyott");
       let value = 0;
       const events = <?php echo json_encode($fetchData); ?>;
       let counter = 0;  
       let event_id = events[counter].id;
       const divsToHide = document.getElementsByClassName("card-container");
       card_infos()
-	  for (var i = 0; i < good.length; i++) {
+      
+	  for (var i = 0; i <= esemenyekosszesen; i++) {
 		
         good[i].addEventListener("click", function() {
 		
 	
+          
+          cssmodositas();
           counter++;
+          console.log(counter);
           event_id = events[counter].id; 
           card_infos();
+
          
           $.post('server.php', {
           btnValue: value,
@@ -159,8 +166,9 @@
         });
 		
         }
-		
-		
+
+
+
 		
 		
 		
@@ -168,21 +176,13 @@
 		
 		
       )};
-
-      //LEGSZIVES NE NYULJ HOZZA
-	  function cssmodosit() {
-		  var keret = document.getElementById("frame");
-		  var elfogyott = document.getElementById("elfogyott");
-		  
-		  if (counter==esemenyekosszesen-1) {
-			keret.style.display = "none";
-			elfogyott.style.display = "";
-			
-		  } else {
-		  }
-		}
-
-	//idaig
+      function cssmodositas(){
+        if (counter === esemenyekosszesen-1) {
+            keret.style.display = "none";
+            elfogyott.style.display = "";
+            elfogyott.style.fontSize = "70px";
+          }
+      }
 
         </script>
     </body>
