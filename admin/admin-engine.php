@@ -8,6 +8,11 @@ $db = $conn;
 // ESEMÉNY FELTÖLTÉSE
 // Hibakezelés, ha rendes user vagy szervező próbálná link alapján megnyitni az upload.php-t
 
+if ($_SESSION['rang'] > 1){
+
+
+
+
 $query = "SELECT * FROM users ";
 $result1 = mysqli_query($db, $query);
 
@@ -50,7 +55,9 @@ $result1 = mysqli_query($db, $query);
   } 
   }
   
-
+}else{
+  header('location:../index.php');
+}
 
 
 

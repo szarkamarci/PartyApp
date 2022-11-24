@@ -66,7 +66,7 @@ if (isset($_POST['reg_user'])) {
   	$_SESSION['username'] = $username;
     $_SESSION['rang'] = $szervezo;
   	$_SESSION['success'] = "Sikeres bejelentkezés";
-  	header('location: ../index2.php');
+  	header('location: ../index.php');
   }
 }
 }
@@ -99,7 +99,7 @@ if (isset($_POST['login_user'])) {
   	  $_SESSION['username'] = $username;
       $_SESSION['rang'] = $rang;
   	  $_SESSION['success'] = "Sikeres bejelentkezés";
-  	  header('location: ../index2.php');
+  	  header('location: ../index.php');
   	}else {
   		array_push($errors, "Hibás felhasználónév vagy jelszó");
   	}

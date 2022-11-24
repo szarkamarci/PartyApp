@@ -59,20 +59,20 @@
                
                 <ul class="main_navbar_ul">
                 
-                    <li class="navbar_level_1_li"><a href="../index2.php" class="navbar_level_1_link">Főoldal</a></li>
-                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Kedvencek</a></li>
+                    <li class="navbar_level_1_li"><a href="../index.php" class="navbar_level_1_link">Főoldal</a></li>
+                    <li class="navbar_level_1_li"><a href="../favourites/index.php" class="navbar_level_1_link">Kedvencek</a></li>
                     <li class="navbar_level_1_li ">
                         <a href="" class="navbar_level_1_link">Események kezelése</a>
                   
                             <ul class="dropdown_level_1">
-                                    <li class="navbar_level_2_li"><a href="../upload/upload.php" class="navbar_level_2_link">Feltöltés</a></li>
-                                    <li class="navbar_level_2_li"><a href="#" class="navbar_level_2_link">Statisztika</a></li>
+                                    <li class="navbar_level_2_li"><a href="../upload/index.php" class="navbar_level_2_link">Feltöltés</a></li>
+                                    <li class="navbar_level_2_li"><a href="../statistics/index.php" class="navbar_level_2_link">Statisztika</a></li>
 
                             </ul>
                     </li>
                     </li>
                     <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Profil</a></li>
-					<li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Admin Panel</a></li>
+					<li class="navbar_level_1_li"><a href="index.php" class="navbar_level_1_link">Admin Panel</a></li>
           <div class="logout">
 					<li class="navbar_level_1_li"><a href="index.php?logout='1'" class="navbar_level_1_link">Kijelentkezés</a></li>
           </div>
