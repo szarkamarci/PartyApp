@@ -81,16 +81,16 @@
             </div>
     </nav>
 </div>
-<div>
+<div class="roles">
 
 <form action="index.php" method="post">
-<select name="taskOption">
-<?php while($row1 = mysqli_fetch_array($result1)):;?>
+<select name="set_roles">
+<?php while($row= mysqli_fetch_array($result)):;?>
 
-<option value="<?php echo $row1[0];?>"id="optval"><?php echo $row1[1];?></option>
+<option value="<?php echo $row[0];?>"id="roleval"><?php echo $row[1];?></option>
 
-<?php echo $row1[0];?>
-<?php echo $row1[1];?> 
+<?php echo $row[0];?>
+<?php echo $row[1];?> 
 
 <?php endwhile;?>
 </select>
@@ -100,11 +100,33 @@
     </form>
     
 
+
+</div>
+<div class="events">
+
+  <form action="index.php" method="post">
+  <select name="delete_events">
+  <?php while($row1 = mysqli_fetch_array($result1)):;?>
+
+  <option value="<?php echo $row1[0];?>"id="eventval"><?php echo $row1[1];?></option>
+
+  <?php echo $row1[0];?>
+  <?php echo $row1[1];?> 
+
+  <?php endwhile;?>
+  </select>
+  <button type="submit" name="delete_event" id="okButton_event">Esemény Törlése</button>
+
+  </form>
+    
+
+    
 </div>
 <script>
-document.getElementById('okButton').value = document.getElementById('optval').value;
-document.getElementById('okButton_szervezo').value = document.getElementById('optval').value;
-document.getElementById('okButton_admin').value = document.getElementById('optval').value;
+document.getElementById('okButton_user').value = document.getElementById('roleval').value;
+document.getElementById('okButton_szervezo').value = document.getElementById('roleval').value;
+document.getElementById('okButton_admin').value = document.getElementById('roleval').value;
+document.getElementById('okButton_event').value = document.getElementById('eventval').value;
 </script>
 </body>
     </html>
