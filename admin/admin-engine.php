@@ -8,6 +8,11 @@ $db = $conn;
 // ESEMÉNY FELTÖLTÉSE
 // Hibakezelés, ha rendes user vagy szervező próbálná link alapján megnyitni az upload.php-t
 
+if ($_SESSION['rang'] > 1){
+
+
+
+
 $query = "SELECT * FROM users ";
 $result1 = mysqli_query($db, $query);
 
@@ -41,7 +46,7 @@ $result1 = mysqli_query($db, $query);
     $u_id = $_POST['taskOption'];
     echo $username;
 
-    $query_update = "UPDATE users SET szervezo = 1 WHERE id = $u_id";
+    $query_update = "UPDATE users SET szervezo = 2 WHERE id = $u_id";
     if(mysqli_query($db, $query_update)){
       echo "Record was updated successfully.";
   } else {
@@ -50,7 +55,9 @@ $result1 = mysqli_query($db, $query);
   } 
   }
   
-
+}else{
+  header('location:../index.php');
+}
 
 
 

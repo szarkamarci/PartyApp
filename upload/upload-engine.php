@@ -16,8 +16,9 @@ $errors = array();
 $db = $conn;
 // ESEMÉNY FELTÖLTÉSE
 // Hibakezelés, ha rendes user próbálná link alapján megnyitni az upload.php-t
+
 if ($_SESSION['rang'] < 1){
-  header('location: ../index2.php');
+  header('location: ../index.php');
 }else{
 
 if (isset($_POST['upload_event'])) {
@@ -46,15 +47,15 @@ if (isset($_POST['upload_event'])) {
   			  VALUES('$nev','$kep','$idopont','$leiras','$helyszin','$event','$jegylink', $szervezo_id )";
   	mysqli_query($db, $query);
     $_SESSION['success'] = "Sikeres feltöltés";
-  	header('location: ../index2.php');
+  	header('location: ../index.php');
 
   }
   else{
     $_SESSION['success'] = "Sikertelen feltöltés";
-    header('location: ../index2.php');
+    header('location: ../index.php');
   }
 } elseif (isset($_POST['back'])){
-    header('location: ../index2.php');
+    header('location: ../index.php');
 }  
 
 }

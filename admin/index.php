@@ -59,20 +59,20 @@
                
                 <ul class="main_navbar_ul">
                 
-                    <li class="navbar_level_1_li"><a href="../index2.php" class="navbar_level_1_link">Főoldal</a></li>
-                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Kedvencek</a></li>
+                    <li class="navbar_level_1_li"><a href="../index.php" class="navbar_level_1_link">Főoldal</a></li>
+                    <li class="navbar_level_1_li"><a href="../favourites/index.php" class="navbar_level_1_link">Kedvencek</a></li>
                     <li class="navbar_level_1_li ">
                         <a href="" class="navbar_level_1_link">Események kezelése</a>
                   
                             <ul class="dropdown_level_1">
-                                    <li class="navbar_level_2_li"><a href="../upload/upload.php" class="navbar_level_2_link">Feltöltés</a></li>
-                                    <li class="navbar_level_2_li"><a href="#" class="navbar_level_2_link">Statisztika</a></li>
+                                    <li class="navbar_level_2_li"><a href="../upload/index.php" class="navbar_level_2_link">Feltöltés</a></li>
+                                    <li class="navbar_level_2_li"><a href="../statistics/index.php" class="navbar_level_2_link">Statisztika</a></li>
 
                             </ul>
                     </li>
                     </li>
                     <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Profil</a></li>
-					<li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Admin Panel</a></li>
+					<li class="navbar_level_1_li"><a href="index.php" class="navbar_level_1_link">Admin Panel</a></li>
           <div class="logout">
 					<li class="navbar_level_1_li"><a href="index.php?logout='1'" class="navbar_level_1_link">Kijelentkezés</a></li>
           </div>
@@ -86,18 +86,25 @@
 <form action="index.php" method="post">
 <select name="taskOption">
 <?php while($row1 = mysqli_fetch_array($result1)):;?>
+
 <option value="<?php echo $row1[0];?>"id="optval"><?php echo $row1[1];?></option>
+
+<?php echo $row1[0];?>
+<?php echo $row1[1];?> 
+
 <?php endwhile;?>
 </select>
-<button type="submit" name="set_user" id="okButton">Legyen tag</button>
-<button type="submit" name="set_szervezo" id="okButton">Legyen szervező</button>
-<button type="submit" name="set_admin" id="okButton">Legyen admin</button>
+<button type="submit" name="set_user" id="okButton_user">Legyen tag</button>
+<button type="submit" name="set_szervezo" id="okButton_szervezo">Legyen szervező</button>
+<button type="submit" name="set_admin" id="okButton_admin">Legyen admin</button>
     </form>
     
 
 </div>
 <script>
 document.getElementById('okButton').value = document.getElementById('optval').value;
+document.getElementById('okButton_szervezo').value = document.getElementById('optval').value;
+document.getElementById('okButton_admin').value = document.getElementById('optval').value;
 </script>
 </body>
     </html>
