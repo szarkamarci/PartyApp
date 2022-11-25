@@ -71,7 +71,6 @@
                       </li>
                     
                     <?php endif ?>
-                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Profil</a></li>
            <?php if($_SESSION['rang'] > 1) : ?>          
 					<li class="navbar_level_1_li"><a href="admin/index.php" class="navbar_level_1_link">Admin Panel</a></li>
           <?php endif ?>

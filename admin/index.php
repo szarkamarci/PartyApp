@@ -71,7 +71,6 @@
                             </ul>
                     </li>
                     </li>
-                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Profil</a></li>
 					<li class="navbar_level_1_li"><a href="index.php" class="navbar_level_1_link">Admin Panel</a></li>
           <div class="logout">
 					<li class="navbar_level_1_li"><a href="index.php?logout='1'" class="navbar_level_1_link">Kijelentkezés</a></li>

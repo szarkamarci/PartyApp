@@ -70,7 +70,6 @@
                       </li>
                     
                     <?php endif ?>
-                    <li class="navbar_level_1_li"><a href="" class="navbar_level_1_link">Profil</a></li>
            <?php if($_SESSION['rang'] > 1) : ?>          
 					<li class="navbar_level_1_li"><a href="../admin/index.php" class="navbar_level_1_link">Admin Panel</a></li>
           <?php endif ?>
@@ -100,7 +99,7 @@
     </thead>
     <tbody>
       <tr>
-      <td><?php echo $row1[0]; ?></td>
+      <td><?php echo $row1[0];?></td>
       <td><?php echo $row1[1];?></td>
       <td><?php echo $row1[2];?></td>
       <td><?php echo $row1[3];?></td>
@@ -119,5 +118,20 @@
 </div>
 </div>
 </div>
+<div class="">
+  <form action="index.php" method="post">
+    <select name="delete_events">
+    <?php while($row2 = mysqli_fetch_array($result2)):;?>
+      <option value="<?php echo $row2[0];?>"id="eventval"><?php echo $row2[1];?></option>
+    <?php echo $row2[0];?>
+    <?php echo $row2[1];?> 
+    <?php endwhile;?>
+    </select>
+      <button type="submit" name="delete_event" id="okButton_event">Esemény Törlése</button>
+  </form>
+</div>
+<script>
+document.getElementById('okButton_event').value = document.getElementById('eventval').value;
+</script>
 </body>
 </html>
