@@ -87,20 +87,20 @@
 <?php while($row= mysqli_fetch_array($result)):;?>
 
 <option value="<?php echo $row[0];?>"id="roleval"><?php echo $row[1];?></option>
-
+</div class = "admin">
 <?php echo $row[0];?>
 <?php echo $row[1];?> 
 
 <?php endwhile;?>
 </select>
-<button type="submit" name="set_user" id="okButton_user">Legyen tag</button>
-<button type="submit" name="set_szervezo" id="okButton_szervezo">Legyen szervező</button>
-<button type="submit" name="set_admin" id="okButton_admin">Legyen admin</button>
+<button type="submit" class="btn" name="set_user" id="okButton_user">Legyen tag</button>
+<button type="submit" class="btn"name="set_szervezo" id="okButton_szervezo">Legyen szervező</button>
+<button type="submit" class="btn"name="set_admin" id="okButton_admin">Legyen admin</button>
     </form>
     
 
 
-</div>
+
 <div class="events">
 
   <form action="index.php" method="post">
@@ -114,7 +114,7 @@
 
   <?php endwhile;?>
   </select>
-  <button type="submit" name="delete_event" id="okButton_event">Esemény Törlése</button>
+  <button type="submit"  class="btn" name="delete_event" id="okButton_event">Esemény Törlése</button>
 
   </form>
     

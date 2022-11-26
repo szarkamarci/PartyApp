@@ -86,7 +86,7 @@
    <div class="col-sm-8">
    <?php while($row1 = mysqli_fetch_array($result1)):;?>
     <div class="table-responsive">
-      <table class="table table-bordered">
+      <table class="table-border">
        <thead><tr>
 
       <th>Esemény neve</th>
@@ -118,7 +118,7 @@
 </div>
 </div>
 </div>
-<div class="">
+<div class="roles">
   <form action="index.php" method="post">
     <select name="delete_events">
     <?php while($row2 = mysqli_fetch_array($result2)):;?>
@@ -127,8 +127,9 @@
     <?php echo $row2[1];?> 
     <?php endwhile;?>
     </select>
-      <button type="submit" name="delete_event" id="okButton_event">Esemény Törlése</button>
+      <button type="submit" class="btn" name="delete_event" id="okButton_event">Esemény Törlése</button>
   </form>
+</div>
 </div>
 <script>
 document.getElementById('okButton_event').value = document.getElementById('eventval').value;

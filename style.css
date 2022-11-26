@@ -267,7 +267,51 @@ button:hover{
   transform: translateX(-150px);
 }
 
+.roles {
+  margin: auto;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  font-size: large;
+  text-align: center;
+  margin-top: 10%;
+  color: #e5e5e5;
+}
 
+.btn{
+  font-family: 'Open Sans';
+  color: #ffffff;
+  text-transform: Capitalize;
+  text-decoration: none;
+  border: green;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  background: transparent;
+
+}
+.btn:hover {
+  background: #434343;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
+.row{
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  font-size: large;
+  text-align: center;
+  margin-top: 10%;
+  color: #e5e5e5;
+}
 
 /*N A V B A R*/
   
@@ -683,4 +727,12 @@ button:hover{
   color: white;
 
 }
+
+.adminpanel {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
 }
