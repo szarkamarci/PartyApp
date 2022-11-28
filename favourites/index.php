@@ -84,22 +84,18 @@
 <div class="container">
  <div class="row">
    <div class="col-sm-8">
+   <h3>Kedvelt Események:</h3>
    <?php while($row1 = mysqli_fetch_array($result1)):;?>
     <div class="table-responsive">
       <table class="table table-bordered">
        <thead><tr>
 
       <th>Esemény neve</th>
-      <th>Tetszik az előadó</th>
-      <th>Tetszik a helyszín</th>
-      <th>Kedvező ár</th>
+
     </thead>
     <tbody>
       <tr>
       <td><?php echo $row1[0]; ?></td>
-      <td><?php echo $row1[4];?></td>
-      <td><?php echo $row1[5];?></td>
-      <td><?php echo $row1[6];?></td>
      </tr>
       <tr>
         <td colspan="8">

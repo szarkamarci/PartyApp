@@ -144,39 +144,28 @@
       const divsToHide = document.getElementsByClassName("card-container");
       card_infos()
       
-	  for (var i = 0; i <= esemenyekosszesen; i++) {
+	  for (var i = 0; i <= 6; i++) {
 		
         good[i].addEventListener("click", function() {
-		
-	
-          
-          cssmodositas();
-          counter++;
-          console.log(counter);
           event_id = events[counter].id; 
-          card_infos();
-
-         
+          console.log(counter);
+          
+          
           $.post('server.php', {
-          btnValue: value,
-          event: event_id,
+            btnValue: value,
+            event: event_id,
           }, (response) => {
-          console.log(response); 
-        });
-		
+            console.log(response); 
+          });
+          
+          counter++;
+          cssmodositas();
+          card_infos();
         }
-
-
-
-		
-		
-		
-			
-		
 		
       )};
       function cssmodositas(){
-        if (counter === esemenyekosszesen-1) {
+        if (counter === esemenyekosszesen) {
             keret.style.display = "none";
             elfogyott.style.display = "";
             elfogyott.style.fontSize = "70px";
